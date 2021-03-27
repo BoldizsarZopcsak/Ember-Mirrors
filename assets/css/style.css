@@ -1,0 +1,15 @@
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clock {
+    margin: auto;
+    display: inline-block;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+}

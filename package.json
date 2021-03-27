@@ -1,0 +1,15 @@
+{
+  "name": "ember_mirrors",
+  "version": "1.0.0",
+  "description": "Smart mirror software. Built for Ember Mirrors.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Boldizsar Zopcsak",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "12.0.2"
+  }
+}
