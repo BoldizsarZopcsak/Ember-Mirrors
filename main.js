@@ -9,12 +9,12 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     },
     // Remove top bar and menu
-    // frame: false
+    frame: false
   })
 
   win.loadFile('src/index.html')
   // Run the app in full screen mode on start
-  // win.setFullScreen(true)
+  win.setFullScreen(true)
 }
 
 app.whenReady().then(() => {
