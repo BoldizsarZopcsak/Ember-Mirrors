@@ -11,7 +11,7 @@ function displayTime() {
     
     timeHoursElement.innerText = String(timeHours).padStart(2, "0")
     timeMinutesElement.innerText = String(timeMinutes).padStart(2, "0")
-    timeSecondsElement.innerText = String(timeSeconds.padStart(2, "0")
+    timeSecondsElement.innerText = String(timeSeconds).padStart(2, "0")
 }
 
 setInterval(displayTime, 100)
