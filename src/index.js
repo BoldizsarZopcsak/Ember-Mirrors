@@ -8,9 +8,10 @@ function displayTime() {
     const timeHoursElement = document.getElementById('time-hours')
     const timeMinutesElement = document.getElementById('time-minutes')
     const timeSecondsElement = document.getElementById('time-seconds')
-    timeHoursElement.innerText = timeHours
-    timeMinutesElement.innerText = timeMinutes
-    timeSecondsElement.innerText = timeSeconds
+    
+    timeHoursElement.innerText = String(timeHours).padStart(2, "0")
+    timeMinutesElement.innerText = String(timeMinutes).padStart(2, "0")
+    timeSecondsElement.innerText = String(timeSeconds).padStart(2, "0")
 }
 
 setInterval(displayTime, 100)
