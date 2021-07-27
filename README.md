@@ -1,2 +1,2 @@
-# ember_mirrors
+# Ember Mirrors
 Smart mirror software. Built for Ember Mirrors.
