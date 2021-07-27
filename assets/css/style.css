@@ -7,11 +7,21 @@ body, html {
 }
 
 .clock {
-    margin: auto;
+    margin: auto auto 0px auto;
     display: inline-block;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 60px;
+    font-size: 120px;
+    font-weight: 600;
+    cursor: none;
+}
+
+.dateAndWeather {
+    margin: 0px auto auto auto;
+    display: inline-block;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
     font-weight: 600;
     cursor: none;
 }
