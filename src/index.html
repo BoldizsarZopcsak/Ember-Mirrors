@@ -6,10 +6,7 @@
     <title>Ember Mirrors</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-   
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <script src="index.js"></script>
 </head>
@@ -20,7 +17,9 @@
             <span id="time-hours"></span>:<span id="time-minutes"></span> <br>
         </p>
     </div>
-    <div class="dateAndWeather">Hello</div>
+    <div class="dateAndWeather">
+        <span id="dayOfTheWeek"></span>, <span id="date"></span> <span id="monthOfTheYear"></span> | <img id="weatherIcon" src="../assets/icons/unknown.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="temperature">-°</span>
+    </div>
 </body>
 
 </html>
