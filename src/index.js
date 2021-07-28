@@ -2,8 +2,6 @@
 let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let month = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
 
-setInterval(displayTime, 200)
-
 function displayTime() {
     let time = new Date()
     let timeHours= time.getHours()
@@ -42,4 +40,11 @@ function weatherBalloon(cityName) {
     });
 }
 
-setInterval(weatherBalloon('Munich'), 300000)  // Update weather every 5 min
+window.addEventListener('DOMContentLoaded', () => {  
+    setInterval(displayTime, 200)
+
+    if (window.electron.getWeatherAPIKey()) {
+        setInterval(weatherBalloon('Munich'), 300000)  // Update weather every 5 min
+        document.getElementById("weather").classList.remove("removed")
+    }
+})
