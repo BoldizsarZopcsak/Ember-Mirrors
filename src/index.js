@@ -32,7 +32,7 @@ function weatherBalloon(cityName) {
     .then(function(data) {
         const weatherIconElement = document.getElementById('weatherIcon')
         const icon = data.weather[0].icon
-        document.getElementById('weatherIcon').src = "../assets/icons/01dSmall.png"
+        document.getElementById('weatherIcon').src = "../assets/icons/01d.png"
 
         const temperatureElement = document.getElementById('temperature')
         temperatureElement.innerText = Math.round(parseFloat(data.main.temp) - 273.15) + '\xB0';
