@@ -2,8 +2,6 @@
 let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let month = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
 
-setInterval(displayTime, 200)
-
 function displayTime() {
     let time = new Date()
     let timeHours= time.getHours()
@@ -26,19 +24,29 @@ function displayTime() {
 }
 
 function weatherBalloon(cityName) {
-    var key = 'b2b7f3f4accd7e1a191d93c7dd481571';
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName+ '&appid=' + key)  
+    let key = window.electron.getWeatherAPIKey();
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`)  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
         const icon = data.weather[0].icon
-        document.getElementById('weatherIcon').src = "../assets/icons/" + icon + ".png"
+        document.getElementById('weatherIcon').src = `../assets/icons/${icon}.png`
 
         const temperatureElement = document.getElementById('temperature')
         temperatureElement.innerText = Math.round(parseFloat(data.main.temp) - 273.15) + '\xB0';
     })
-    .catch(function() {
-        // catch any errors
+    .catch((err) => {
+        console.error(err)
     });
 }
 
-setInterval(weatherBalloon('Munich'), 300000)  // Update weather every 5 min
+window.addEventListener('DOMContentLoaded', () => {  
+    setInterval(displayTime, 200)
+
+    if (window.electron.getWeatherAPIKey()) {
+        const city = window.electron.getWeatherAPICity() || "New York";
+        document.getElementById("weather").classList.remove("removed") // Show
+
+        setInterval(weatherBalloon(city), 300000)  // Update weather every 5 min
+    }
+})

@@ -29,3 +29,7 @@ body, html {
 .dateAndWeather img {
     position: absolute;
 }
+
+.removed {
+    display: none
+}
