@@ -30,9 +30,8 @@ function weatherBalloon(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName+ '&appid=' + key)  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
-        const weatherIconElement = document.getElementById('weatherIcon')
         const icon = data.weather[0].icon
-        document.getElementById('weatherIcon').src = "../assets/icons/01d.png"
+        document.getElementById('weatherIcon').src = "../assets/icons/" + icon + ".png"
 
         const temperatureElement = document.getElementById('temperature')
         temperatureElement.innerText = Math.round(parseFloat(data.main.temp) - 273.15) + '\xB0';
@@ -41,7 +40,5 @@ function weatherBalloon(cityName) {
         // catch any errors
     });
 }
-  
-window.onload = function() {
-    weatherBalloon('Munich');
-}
+
+setInterval(weatherBalloon('Munich'), 300000)  // Update weather every 5 min
