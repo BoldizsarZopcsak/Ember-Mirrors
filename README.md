@@ -8,3 +8,12 @@ This project runs on the [Electron](https://www.electronjs.org/) framework. You 
 npm install
 npm start
 ```
+
+### Weather
+
+To be able to display current weather information for your location, you will
+need to sign up for an API key over at
+[openweathermap.org](https://openweathermap.org/api).
+
+Then, create a `.env` file based on the `.env.example` file. Enter your API key
+and specify your current location.
