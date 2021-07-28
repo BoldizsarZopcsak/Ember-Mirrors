@@ -44,7 +44,9 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(displayTime, 200)
 
     if (window.electron.getWeatherAPIKey()) {
-        setInterval(weatherBalloon('Munich'), 300000)  // Update weather every 5 min
-        document.getElementById("weather").classList.remove("removed")
+        const city = window.electron.getWeatherAPICity() || "New York";
+        document.getElementById("weather").classList.remove("removed") // Show
+
+        setInterval(weatherBalloon(city), 300000)  // Update weather every 5 min
     }
 })
