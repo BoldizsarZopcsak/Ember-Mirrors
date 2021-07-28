@@ -26,18 +26,19 @@ function displayTime() {
 }
 
 function weatherBalloon(cityName) {
-    var key = 'b2b7f3f4accd7e1a191d93c7dd481571';
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName+ '&appid=' + key)  
+    let key = window.electron.getWeatherAPIKey();
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`)  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
         const icon = data.weather[0].icon
-        document.getElementById('weatherIcon').src = "../assets/icons/" + icon + ".png"
+        document.getElementById('weatherIcon').src = `../assets/icons/${icon}.png`
 
         const temperatureElement = document.getElementById('temperature')
         temperatureElement.innerText = Math.round(parseFloat(data.main.temp) - 273.15) + '\xB0';
     })
-    .catch(function() {
-        // catch any errors
+    .catch((err) => {
+        console.error(err)
     });
 }
 

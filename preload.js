@@ -1,4 +1,6 @@
-window.addEventListener('DOMContentLoaded', () => {
+const { contextBridge } = require('electron')
+
+window.addEventListener('DOMContentLoaded', () => {  
     const replaceText = (selector, text) => {
       const element = document.getElementById(selector)
       if (element) element.innerText = text
@@ -8,3 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
       replaceText(`${type}-version`, process.versions[type])
     }
   })
+
+
+// Context bridge between node process and web renderer
+contextBridge.exposeInMainWorld('electron', {
+  getWeatherAPIKey: () =>  process.env.WEATHER_API_KEY
+})
