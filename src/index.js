@@ -47,6 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const city = window.electron.getWeatherAPICity() || "New York";
         document.getElementById("weather").classList.remove("removed")  // Show
 
-        setInterval(weatherBalloon(city), 300000)  // Update weather every 5 min
+        weatherBalloon(city)
+        setInterval(weatherBalloon, 300000, city)  // Update weather every 5 min (300000)
     }
 })
